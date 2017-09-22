@@ -4,4 +4,4 @@
 * npm install
 
 ### running project locally
-* nodemon
+* npm start or nodemon
