@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const config = require('./config/database');
 
 // Connect to database
-mongoose.connect(config.database);
+mongoose.connect(config.database, {useMongoClient: true});
 
 // Connection success
 mongoose.connection.on('connected', () => {
@@ -36,9 +36,15 @@ app.use(express.static(path.join(__dirname, 'public')))
 // Body Parser Middleware: parses incoming request bodies
 app.use(bodyParser.json());
 
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
+
 app.use('/users', users);
 
-// Indes Route
+// Index Route
 app.get('/', (req, res) => {
     res.send('Invalid Endpoint');
 })

@@ -1,7 +1,11 @@
 # meanauthapp
 
 ### Installing project locally
-* npm install
+```bash
+npm install
+```
 
 ### running project locally
-* npm start or nodemon
+```bash
+npm start
+```
