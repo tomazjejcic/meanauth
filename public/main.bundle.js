@@ -734,8 +734,12 @@ var AuthService = (function () {
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.get('http://localhost:3000/users/profile', { headers: headers })
+        // heroku
+        return this.http.get('users/profile', { headers: headers })
             .map(function (res) { return res.json(); });
+        // local server
+        // return this.http.get('http://localhost:3000/users/profile', {headers: headers})
+        //     .map(res => res.json());
     };
     AuthService.prototype.storeUserData = function (token, user) {
         localStorage.setItem('id_token', token);
