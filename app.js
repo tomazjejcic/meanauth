@@ -25,7 +25,8 @@ const app = express();
 const users = require('./routes/users');
 
 // set port number
-const port = 3000;
+// const port = 3000; // local server
+const port = process.env.PORT || 8080; // heroku
 
 // CORS Middleware:  to make api request from diferent domain name
 app.use(cors());

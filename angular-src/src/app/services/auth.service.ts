@@ -16,15 +16,23 @@ export class AuthService {
     registerUser(user) {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/users/register', user, {headers: headers})
+        // heroku
+        return this.http.post('users/register', user, {headers: headers})
             .map(res => res.json());
+        // local server
+        // return this.http.post('http://localhost:3000/users/register', user, {headers: headers})
+        //     .map(res => res.json());
     }
 
     authenticateUser(user) {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/users/authenticate', user, {headers: headers})
+        // heroku
+        return this.http.post('users/authenticate', user, {headers: headers})
             .map(res => res.json());
+        // local server
+        // return this.http.post('http://localhost:3000/users/authenticate', user, {headers: headers})
+        //     .map(res => res.json());
     }
 
     getProfile() {
