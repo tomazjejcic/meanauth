@@ -7,5 +7,6 @@ npm install
 
 ### running project locally
 ```bash
+npm build
 npm start
 ```
